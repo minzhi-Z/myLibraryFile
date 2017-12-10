@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自己写的hammer</title>
+	<meta name="viewport" content="width=device-width,user-scalable=no">
+	<script src="myhammer.js"></script>
+	<style type="text/css">
+		.div1{
+			width: 180px;
+			height: 230px;
+			background: green;
+		}
+	</style>
+	<script type="text/javascript">
+		function  $(...args){
+			return document.querySelectorAll(...args)
+		}
+		window.onload=function(){
+			let oDiv1=$(".div1")[0];
+			let myhammer=new MyHammer(oDiv1)
+			// console.log(myhammer)
+
+			myhammer.on('tap',ev=>{
+				console.log('tap',ev)
+			})
+
+			myhammer.on('press',()=>{
+				console.log('press')
+			})
+
+			myhammer.on('panstart',ev=>{
+				console.log('panstart',ev)
+			})
+			myhammer.on('panmove',ev=>{
+				console.log('panmove',ev)
+			})
+			myhammer.on('panend',ev=>{
+				console.log('panend',ev)
+			})
+
+
+		}
+	</script>
+</head>
+<body>
+	<div class="div1"></div>
+</body>
+</html>
